@@ -1,0 +1,165 @@
+$main-background-color: rgba(180, 180, 180, 0.089);
+$main-height-contanier: 60px;
+$main-width-contanier: 1170px;
+$category-gradient-colors: rgba(255, 0, 0, 1), rgba(255, 138, 0, 0.7651), rgba(219, 247, 44, 0.6111),
+  rgba(0, 255, 87, 1), rgba(0, 178, 255, 1), rgba(4, 0, 210, 1), rgba(250, 0, 255, 1), rgba(255, 0, 0, 1);
+$category-padding: 30px;
+
+$promotion-background-color: red;
+$promotion-text-color: white;
+$promotion-font-size: 14px;
+
+$category-text-color: rgba(51, 51, 51, 1);
+$category-hover-color: $main-background-color;
+$category-text-size: 16px;
+
+$dropdown-background-color: $main-background-color;
+$dropdown-text-color: rgba(0, 0, 0, 1);
+$dropdown-padding-left: $category-padding;
+$dropdown-padding-right: 250px;
+$dropdown-font-size: 13px;
+$dropdown-grid-gap: 10px;
+
+$border-radius: 5px;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: bolder;
+  font-family: 'Poppins', sans-serif;
+  list-style: none;
+}
+
+body {
+  font-size: 16px;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: white;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: $dropdown-text-color;
+}
+
+.main-menu {
+  position: relative;
+  width: clamp(640px, 80vw, $main-width-contanier);
+  height: $main-height-contanier;
+  background-color: $main-background-color; // inny
+  margin-top: $category-padding;
+  margin-left: $category-padding;
+  border-radius: $border-radius;
+  padding-right: 12px;
+
+  & > ul {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 3px;
+    background: linear-gradient(-90deg, $category-gradient-colors) left bottom no-repeat;
+    background-size: 100% 3px;
+  }
+
+  .category {
+    &__promotion {
+      position: relative;
+      width: 118px;
+      height: 36px;
+      display: flex;
+      background-color: $promotion-background-color;
+      text-align: center;
+      border-radius: $border-radius;
+      margin-left: auto;
+      margin-right: 0;
+      cursor: pointer;
+
+      & > a {
+        color: $promotion-text-color;
+        text-transform: uppercase;
+        font-size: $promotion-font-size;
+        padding: 7px 19px 8px 20px;
+      }
+    }
+    &__item {
+      padding-right: $category-padding;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      padding-right: 60px;
+      &:nth-child(1) {
+        padding-left: $category-padding;
+      }
+
+      & > a {
+        position: relative;
+        display: block;
+        color: $category-text-color;
+        text-decoration: none;
+        font-size: $category-text-size;
+        padding-right: 10px;
+        cursor: pointer;
+
+        &::after {
+          content: '';
+          position: absolute;
+          display: block;
+          opacity: 0;
+          width: 0;
+          height: 0;
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-bottom: 14.55px solid $main-background-color;
+          top: 44px;
+          left: calc(50% - 20px);
+          transition: opacity 0.3s ease-in-out;
+        }
+      }
+      & > a::first-letter {
+        text-transform: lowercase;
+      }
+    }
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: $main-height-contanier + 15px;
+  transition: opacity 0.3s ease-in-out;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(182px, 1fr));
+  grid-gap: $dropdown-grid-gap;
+  background-color: $dropdown-background-color;
+  width: clamp(640px, 80vw, $main-width-contanier);
+  left: 0px;
+  border-radius: $border-radius;
+  padding: $category-padding $dropdown-padding-right $category-padding $dropdown-padding-left;
+  font-size: $dropdown-font-size;
+  pointer-events: none;
+  opacity: 0;
+
+  &__sub {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+}
+
+svg {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.category__item > a.active::after {
+  opacity: 1;
+}
+
+.category__item.active > .dropdown-menu {
+  opacity: 1;
+  pointer-events: all;
+}

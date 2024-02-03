@@ -3,28 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>menu</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+    <script src="index.js" defer></script>
+    <title>Menu</title>
   </head>
   <body>
-    <ul>
-      <li>
-        <a href="#makijaz" title="Makijaż">Makijaż</a>
-      </li>
-      <ul>
-        <li><a href="#test1" title="Test 1">Test 1</a></li>
-        <li><a href="#test2" title="Test 2">Test 2</a></li>
-      </ul>
-      <li>
-        <a href="#twarz" title="Twarz">Twarz</a>
-        <ul>
+    <div class="main-menu">
+      <ul class="category" >
+        <li class="category__item">
+          <a href="#makijaz" class="category" title="Makijaż">Makijaż </a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="2.29em" height="1em" viewBox="0 0 16 7">
+            <path
+              fill="currentColor"
+              d="M8 6.5a.47.47 0 0 1-.35-.15l-4.5-4.5c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l4.15 4.15l4.14-4.14c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-4.5 4.5c-.1.1-.23.15-.35.15Z"
+            />
+          </svg>
+          <ul class="dropdown-menu">
+            <li><a href="#test"  class="dropdown-menu__sub" title="Test 1">Test 1</a></li>
+            <li><a href="#test2"  class="dropdown-menu__sub" title="Test 2">Test 2</a></li>
+          </ul>
+        </li> 
+      </li >
+      <li class="category__item">
+        <a href="#twarz"  title="Twarz">Twarz</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="2.29em" height="1em" viewBox="0 0 16 7">
+          <path
+            fill="currentColor"
+            d="M8 6.5a.47.47 0 0 1-.35-.15l-4.5-4.5c-.2-.2-.2-.51 0-.71c.2-.2.51-.2.71 0l4.15 4.15l4.14-4.14c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-4.5 4.5c-.1.1-.23.15-.35.15Z"
+          />
+        </svg>
+        <ul class="dropdown-menu" >
           <li>
-            <a href="#kremy" title="Kremy">Kremy</a>
+            <a href="#kremy" class="dropdown-menu__sub"  title="Kremy">Kremy</a>
             <ul>
               <li>
                 <a href="#kremy-nawilzajace" title="Kremy nawilżające">Kremy nawilżające</a>
               </li>
 
-              <li><a href="#kremy-odżywcze" title="Kremy odżywcze">Kremy odżywcze</a></li>
+              <li>
+                <a href="#kremy-odżywcze" title="Kremy odżywcze">Kremy odżywcze</a>
+              </li>
 
               <li>
                 <a href="#kremy-na-przebarwienia" title="Kremy na przebarwienia">Kremy na przebarwienia</a>
@@ -36,13 +55,15 @@
             </ul>
           </li>
           <li>
-            <a href="#serum" title="Serum">Serum</a>
+            <a href="#serum" class="dropdown-menu__sub" title="Serum">Serum</a>
             <ul>
               <li>
                 <a href="#serum-nawilzajace" title="Serum nawilżające">Serum nawilżające</a>
               </li>
 
-              <li><a href="#serum-odżywcze" title="Serum odżywcze">Serum odżywcze</a></li>
+              <li>
+                <a href="#serum-odżywcze" title="Serum odżywcze">Serum odżywcze</a>
+              </li>
 
               <li>
                 <a href="#serum-na-przebarwienia" title="Serum na przebarwienia">Serum na przebarwienia</a>
@@ -52,7 +73,9 @@
                 <a href="#serum-przeciwzmarszczkowe" title="Serum przeciwzmarszczkowe">Serum przeciwzmarszczkowe</a>
               </li>
 
-              <li><a href="#serum-olejowe" title="Serum olejowe">Serum olejowe</a></li>
+              <li>
+                <a href="#serum-olejowe" title="Serum olejowe">Serum olejowe</a>
+              </li>
 
               <li>
                 <a href="#serum-antyoksydacyjne" title="Serum antyoksydacyjne">Serum antyoksydacyjne</a>
@@ -60,14 +83,20 @@
             </ul>
           </li>
           <li>
-            <a href="#oczyszczanie-twarzy" title="Oczyszczanie twarzy">Oczyszczanie twarzy</a>
+            <a href="#Oczyszczanie-twarzy" class="dropdown-menu__sub" title="Oczyszczanie twarzy">Oczyszczanie twarzy</a>
 
             <ul>
-              <li><a href="#zele" title="Żele do mycia twarzy">Żele do mycia twarzy</a></li>
+              <li>
+                <a href="#zele" title="Żele do mycia twarzy">Żele do mycia twarzy</a>
+              </li>
 
-              <li><a href="#pianki" title="Pianki do mycia twarzy">Pianki do mycia twarzy</a></li>
+              <li>
+                <a href="#pianki" title="Pianki do mycia twarzy">Pianki do mycia twarzy</a>
+              </li>
 
-              <li><a href="#emulsje" title="Emulsje do mycia twarzy">Emulsje do mycia twarzy</a></li>
+              <li>
+                <a href="#emulsje" title="Emulsje do mycia twarzy">Emulsje do mycia twarzy</a>
+              </li>
 
               <li><a href="#mydla" title="Mydła do twarzy">Mydła do twarzy</a></li>
             </ul>
@@ -75,21 +104,22 @@
         </ul>
       </li>
 
-      <li>
-        <a href="#cialo" title="Ciało">Ciało</a>
-      </li>
-      <li>
-        <a href="#wlosy" title="Włosy">Włosy</a>
-      </li>
-      <li>
-        <a href="#pielegnacja" title="Pielęgnacja">Pielęgnacja</a>
-      </li>
-      <li>
-        <a href="#dom" title="dom">dom</a>
-      </li>
-      <li>
-        <a href="#promocje" title="Promocje">Promocje</a>
-      </li>
-    </ul>
+        <li class="category__item" >
+          <a href="#cialo" title="Ciało">Ciało</a>
+        </li>
+        <li  class="category__item">
+          <a href="#wlosy" title="Włosy">Włosy</a>
+        </li>
+        <li class="category__item">
+          <a href="#pielegnacja"  title="Pielęgnacja">Pielęgnacja</a>
+        </li>
+        <li class="category__item">
+          <a href="#dom"   title="dom">dom</a>
+        </li>
+        <li  class="category__promotion" >
+          <a href="#promocje"title="Promocje">Promocje</a>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
