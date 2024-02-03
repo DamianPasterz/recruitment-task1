@@ -19,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/DamianPasterz/recruitment-task1/issues"
   },
-  "homepage": "https://github.com/DamianPasterz/recruitment-task1#readme"
+  "homepage": "https://github.com/DamianPasterz/recruitment-task1#readme",
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0",
+    "style-dictionary": "^3.8.0",
+    "typescript": "^5.0.4"
+  }
 }
