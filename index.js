@@ -1,6 +1,6 @@
 document.addEventListener("click", (e) => {
 
-  const isDropdownButton = e.target.matches("[data-dropdown-button]");
+  const isDropdownButton = e.target.matches("[data-dropdown-button], svg[data-dropdown-icon]");
   if (!isDropdownButton && e.target.closest('[data-dropdown') !== null) return;
   
 
@@ -20,13 +20,12 @@ document.addEventListener("click", (e) => {
     if (linkElement) {
       linkElement.classList.toggle("active");
     }
-
   };
 
   const closeDropdown = (dropdown) => {
     dropdown.classList.remove("active");
     const svgIcon = dropdown.querySelector("svg[data-dropdown-icon]");
-    
+
     if (svgIcon) {
       svgIcon.style.transform = "rotate(0deg)";
     }

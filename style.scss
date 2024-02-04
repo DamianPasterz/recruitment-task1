@@ -1,4 +1,4 @@
-$main-background-color: rgba(180, 180, 180, 0.089);
+$main-background-color: rgba(244, 244, 244, 1);
 $main-height-contanier: 60px;
 $main-width-contanier: 1170px;
 $category-gradient-colors: rgba(255, 0, 0, 1), rgba(255, 138, 0, 0.7651), rgba(219, 247, 44, 0.6111), rgba(0, 255, 87, 1),
@@ -45,6 +45,11 @@ a {
   color: $dropdown-text-color;
 }
 
+svg {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
 .main-menu {
   position: relative;
   width: clamp(640px, 80vw, $main-width-contanier);
@@ -86,6 +91,7 @@ a {
         padding: 7px 19px 8px 20px;
       }
     }
+
     &__item {
       padding-right: $category-padding;
       display: flex;
@@ -93,8 +99,13 @@ a {
       padding: 0;
       margin: 0;
       padding-right: 60px;
+
       &:nth-child(1) {
         padding-left: $category-padding;
+      }
+
+      & > a::first-letter {
+        text-transform: lowercase;
       }
 
       & > a {
@@ -121,9 +132,6 @@ a {
           transition: opacity 0.3s ease-in-out;
         }
       }
-      & > a::first-letter {
-        text-transform: lowercase;
-      }
     }
   }
 }
@@ -148,11 +156,6 @@ a {
     font-size: 15px;
     margin-bottom: 12px;
   }
-}
-
-svg {
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
 }
 
 .category__item > a.active::after {
