@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener("click", (e) => {
   const toggleDropdown = (dropdown) => {
     dropdown.classList.toggle("active");
