@@ -1,21 +1,32 @@
 document.addEventListener("click", (e) => {
-  const toggleDropdown = (dropdown) => {
-    dropdown.classList.toggle("active");
-    const rotation = dropdown.classList.contains("active") ? 180 : 0;
-    const svgIcon = dropdown.querySelector("svg[data-dropdown-icon]");
+
+  const isDropdownButton = e.target.matches("[data-dropdown-button]");
+  if (!isDropdownButton && e.target.closest('[data-dropdown') !== null) return;
+  
+
+  const toggleDropdown = () => {
+    const currentDropdown = e.target.closest("[data-dropdown]")
+    currentDropdown.classList.toggle("active");
+
+    const rotation = currentDropdown.classList.contains("active") ? 180 : 0;
+    const svgIcon = currentDropdown.querySelector("svg[data-dropdown-icon]");
+
     if (svgIcon) {
       svgIcon.style.transform = `rotate(${rotation}deg)`;
     }
 
-    const linkElement = dropdown.querySelector(".category__item > a");
+    const linkElement = currentDropdown.querySelector(".category__item > a");
+
     if (linkElement) {
       linkElement.classList.toggle("active");
     }
+
   };
 
   const closeDropdown = (dropdown) => {
     dropdown.classList.remove("active");
     const svgIcon = dropdown.querySelector("svg[data-dropdown-icon]");
+    
     if (svgIcon) {
       svgIcon.style.transform = "rotate(0deg)";
     }
@@ -26,11 +37,10 @@ document.addEventListener("click", (e) => {
     }
   };
 
-  const isDropdownButton = e.target.closest("[data-dropdown]");
-  if (!isDropdownButton) return;
-
   const currentDropdown = e.target.closest("[data-dropdown]");
-  toggleDropdown(currentDropdown);
+  if (isDropdownButton) {
+    toggleDropdown();
+  }
 
   document
     .querySelectorAll("[data-dropdown].active")
