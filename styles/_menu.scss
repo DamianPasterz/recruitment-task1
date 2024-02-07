@@ -1,54 +1,4 @@
-$main-background-color: rgba(244, 244, 244, 1);
-$main-height-contanier: 60px;
-$main-width-contanier: 1170px;
-$category-gradient-colors: rgba(255, 0, 0, 1), rgba(255, 138, 0, 0.7651), rgba(219, 247, 44, 0.6111), rgba(0, 255, 87, 1),
-  rgba(0, 178, 255, 1), rgba(4, 0, 210, 1), rgba(250, 0, 255, 1), rgba(255, 0, 0, 1);
-$category-padding: 30px;
-
-$promotion-background-color: red;
-$promotion-text-color: white;
-$promotion-font-size: 14px;
-
-$category-text-color: rgba(51, 51, 51, 1);
-$category-hover-color: $main-background-color;
-$category-text-size: 16px;
-
-$dropdown-background-color: $main-background-color;
-$dropdown-text-color: rgba(0, 0, 0, 1);
-$dropdown-padding-left: $category-padding;
-$dropdown-padding-right: 250px;
-$dropdown-font-size: 13px;
-$dropdown-grid-gap: 10px;
-
-$border-radius: 5px;
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-weight: bolder;
-  font-family: 'Poppins', sans-serif;
-  list-style: none;
-}
-
-body {
-  font-size: 16px;
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  background-color: white;
-}
-
-a {
-  display: block;
-  text-decoration: none;
-  color: $dropdown-text-color;
-}
-
-svg {
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
+@use 'variables' as *;
 
 .main-menu {
   position: relative;
@@ -134,35 +84,4 @@ svg {
       }
     }
   }
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: $main-height-contanier + 15px;
-  transition: opacity 0.3s ease-in-out;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(182px, 1fr));
-  grid-gap: $dropdown-grid-gap;
-  background-color: $dropdown-background-color;
-  width: clamp(640px, 80vw, $main-width-contanier);
-  left: 0px;
-  border-radius: $border-radius;
-  padding: $category-padding $dropdown-padding-right $category-padding $dropdown-padding-left;
-  font-size: $dropdown-font-size;
-  pointer-events: none;
-  opacity: 0;
-
-  &__sub {
-    font-size: 15px;
-    margin-bottom: 12px;
-  }
-}
-
-.category__item > a.active::after {
-  opacity: 1;
-}
-
-.category__item.active > .dropdown-menu {
-  opacity: 1;
-  pointer-events: all;
 }

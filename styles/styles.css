@@ -1,31 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-weight: bolder;
-  font-family: "Poppins", sans-serif;
-  list-style: none;
-}
-
-body {
-  font-size: 16px;
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  background-color: white;
-}
-
-a {
-  display: block;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-}
-
-svg {
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
-
 .main-menu {
   position: relative;
   width: clamp(640px, 80vw, 1170px);
@@ -130,4 +102,32 @@ svg {
 .category__item.active > .dropdown-menu {
   opacity: 1;
   pointer-events: all;
-}/*# sourceMappingURL=style.css.map */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: bolder;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+}
+
+body {
+  font-size: 16px;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: rgb(244, 244, 244);
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+svg {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}/*# sourceMappingURL=styles.css.map */

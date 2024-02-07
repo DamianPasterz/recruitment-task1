@@ -1,0 +1,32 @@
+@use 'variables' as *;
+
+.dropdown-menu {
+  position: absolute;
+  top: $main-height-contanier + 15px;
+  transition: opacity 0.3s ease-in-out;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(182px, 1fr));
+  grid-gap: $dropdown-grid-gap;
+  background-color: $dropdown-background-color;
+  width: clamp(640px, 80vw, $main-width-contanier);
+  left: 0px;
+  border-radius: $border-radius;
+  padding: $category-padding $dropdown-padding-right $category-padding $dropdown-padding-left;
+  font-size: $dropdown-font-size;
+  pointer-events: none;
+  opacity: 0;
+
+  &__sub {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+}
+
+.category__item > a.active::after {
+  opacity: 1;
+}
+
+.category__item.active > .dropdown-menu {
+  opacity: 1;
+  pointer-events: all;
+}
