@@ -1,51 +1,35 @@
-document.addEventListener("click", (e) => {
+const DROPDOWN_BUTTON_SELECTOR = "[data-dropdown-button], svg[data-dropdown-icon]";
+const CURRENT_DROPDOWN_SELECTOR = "[data-dropdown]";
+const LINK_ELEMENT_SELECTOR = ".category__item > a";
+const SVG_ICON_SELECTOR = "svg[data-dropdown-icon]";
 
-  const isDropdownButton = e.target.matches("[data-dropdown-button], svg[data-dropdown-icon]");
-  if (!isDropdownButton && e.target.closest('[data-dropdown') !== null) return;
-  
 
-  const toggleDropdown = () => {
-    const currentDropdown = e.target.closest("[data-dropdown]")
-    currentDropdown.classList.toggle("active");
-
-    const rotation = currentDropdown.classList.contains("active") ? 180 : 0;
-    const svgIcon = currentDropdown.querySelector("svg[data-dropdown-icon]");
-
-    if (svgIcon) {
-      svgIcon.style.transform = `rotate(${rotation}deg)`;
-    }
-
-    const linkElement = currentDropdown.querySelector(".category__item > a");
-
-    if (linkElement) {
-      linkElement.classList.toggle("active");
-    }
-  };
-
-  const closeDropdown = (dropdown) => {
-    dropdown.classList.remove("active");
-    const svgIcon = dropdown.querySelector("svg[data-dropdown-icon]");
-
-    if (svgIcon) {
-      svgIcon.style.transform = "rotate(0deg)";
-    }
-
-    const linkElement = dropdown.querySelector(".category__item > a");
-    if (linkElement) {
-      linkElement.classList.remove("active");
-    }
-  };
-
-  const currentDropdown = e.target.closest("[data-dropdown]");
-  if (isDropdownButton) {
-    toggleDropdown();
+const toggleDropdown = (currentDropdown) => {
+  currentDropdown.classList.toggle("active");
+  const rotation = currentDropdown.classList.contains("active") ?  180 :  0;
+  const svgIcon = currentDropdown.querySelector(SVG_ICON_SELECTOR);
+  if (svgIcon) {
+    svgIcon.style.transform = `rotate(${rotation}deg)`;
   }
+  const linkElement = currentDropdown.querySelector(LINK_ELEMENT_SELECTOR);
+  if (linkElement) {
+    linkElement.classList.toggle("active");
+  }
+};
 
-  document
-    .querySelectorAll("[data-dropdown].active")
-    .forEach((dropdown) => {
+document.querySelectorAll(DROPDOWN_BUTTON_SELECTOR).forEach((button) => {
+  button.addEventListener("click", (e) => {
+
+
+    const currentDropdown = e.target.closest(CURRENT_DROPDOWN_SELECTOR);
+    if (!DROPDOWN_BUTTON_SELECTOR && currentDropdown  !== null) return;
+    if (!currentDropdown) return;
+    toggleDropdown(currentDropdown);
+
+    document.querySelectorAll(`${CURRENT_DROPDOWN_SELECTOR}.active`).forEach((dropdown) => {
       if (dropdown !== currentDropdown) {
-        closeDropdown(dropdown);
+        toggleDropdown(dropdown);
       }
     });
+  });
 });
