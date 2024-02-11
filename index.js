@@ -1,10 +1,10 @@
-const DROPDOWN_BUTTON_SELECTOR = "[data-dropdown-button], svg[data-dropdown-icon]";
-const CURRENT_DROPDOWN_SELECTOR = "[data-dropdown]";
-const LINK_ELEMENT_SELECTOR = ".category__item > a";
-const SVG_ICON_SELECTOR = "img[data-dropdown-icon]";
+const SVG_ICON_SELECTOR = "img[data-dropdown-icon]"; 
+const LINK_ELEMENT_SELECTOR = ".category__item > a"; 
+const DROPDOWN_BUTTON_SELECTOR = "[data-dropdown-button], svg[data-dropdown-icon]"; 
+const CURRENT_DROPDOWN_SELECTOR = "[data-dropdown]"; 
 
-const ROTATION_ACTIVE =  180;
-const ROTATION_INACTIVE =  0;
+const ROTATION_ACTIVE = 180; 
+const ROTATION_INACTIVE = 0; 
 
 
 const toggleDropdown = (currentDropdown) => {
@@ -23,7 +23,6 @@ const toggleDropdown = (currentDropdown) => {
 document.querySelectorAll(DROPDOWN_BUTTON_SELECTOR).forEach((button) => {
   button.addEventListener("click", (e) => {
     const currentDropdown = e.target.closest(CURRENT_DROPDOWN_SELECTOR);
-    if (!DROPDOWN_BUTTON_SELECTOR && currentDropdown  !== null) return;
     if (!currentDropdown) return;
     toggleDropdown(currentDropdown);
 
@@ -33,4 +32,12 @@ document.querySelectorAll(DROPDOWN_BUTTON_SELECTOR).forEach((button) => {
       }
     });
   });
+});
+
+document.addEventListener("click", (e) => {
+  const currentDropdown = document.querySelector(`${CURRENT_DROPDOWN_SELECTOR}.active`);
+  const isClickInsideDropdown = currentDropdown && currentDropdown.contains(e.target);
+  if (!isClickInsideDropdown && currentDropdown) {
+    toggleDropdown(currentDropdown);
+  }
 });
