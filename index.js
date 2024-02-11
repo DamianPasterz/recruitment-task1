@@ -1,7 +1,7 @@
 const DROPDOWN_BUTTON_SELECTOR = "[data-dropdown-button], svg[data-dropdown-icon]";
 const CURRENT_DROPDOWN_SELECTOR = "[data-dropdown]";
 const LINK_ELEMENT_SELECTOR = ".category__item > a";
-const SVG_ICON_SELECTOR = "svg[data-dropdown-icon]";
+const SVG_ICON_SELECTOR = "img[data-dropdown-icon]";
 
 const ROTATION_ACTIVE =  180;
 const ROTATION_INACTIVE =  0;
